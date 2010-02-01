@@ -1,11 +1,12 @@
 module TwitterSearch
   class Tweet
-    VARS = [:text, :from_user, :to_user, :to_user_id, :id, :iso_language_code, :from_user_id, :created_at, :profile_image_url, :source ]
+    VARS = [:text, :from_user, :to_user, :to_user_id, :id, :iso_language_code, :from_user_id, :created_at, :profile_image_url, :source, :geo ]
     attr_reader *VARS
     attr_reader :language
 
     def initialize(opts)
-      @language = opts['iso_language_code']
+      @language = opts['iso_language_code']                   
+      p opts
       VARS.each { |each| instance_variable_set "@#{each}", opts[each.to_s] }
     end
 
