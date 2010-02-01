@@ -6,7 +6,6 @@ module TwitterSearch
 
     def initialize(opts)
       @language = opts['iso_language_code']                   
-      p opts
       VARS.each { |each| instance_variable_set "@#{each}", opts[each.to_s] }
     end
 
